@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { fridge } from "reducers/fridge";
 import styled from "styled-components";
 import { Button } from "lib/Button";
-import { Container } from "lib/Container";
 import { Select } from "lib/Select";
 
 const FormWrapper = styled.div`
