@@ -14,7 +14,7 @@ const SummaryContainer = styled.div`
 export const FridgeSummary = () => {
   const items = useSelector((state) => state.fridge.items);
   const buyMoreItems = items.filter((item) => item.needsMore).length;
-  // Just interested in how many they are, so just need the length here.
+  // Just interested in how many they are, so just length here.
 
   return (
     <Container>

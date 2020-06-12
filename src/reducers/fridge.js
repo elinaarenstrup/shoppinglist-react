@@ -17,7 +17,7 @@ export const fridge = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
-      const { name, category, dueDate, quantity } = action.payload;
+      const { name, category, quantity } = action.payload;
       state.items.push({
         id: Date.now(),
         name,

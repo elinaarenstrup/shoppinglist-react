@@ -16,7 +16,12 @@ const AppWrapper = styled.div`
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: 820px) {
+    width: 100%;
+  }
 `;
+
 const ContentWrapper = styled.div`
   background: #f1f1f1;
   margin: 0;
@@ -25,6 +30,10 @@ const ContentWrapper = styled.div`
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: 820px) {
+    padding: 10px;
+  }
 `;
 
 const reducer = combineReducers({

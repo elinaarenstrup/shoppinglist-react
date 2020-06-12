@@ -23,7 +23,7 @@ export const CustomCheckbox = ({ isChecked, onChangeHandler }) => {
     display: inline;
   `;
 
-  // This is the checkmark itself
+  // Checkmark itself
   const Icon = styled.svg`
     fill: none;
     stroke: white;

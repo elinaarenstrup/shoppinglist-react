@@ -8,6 +8,11 @@ import { Select } from "lib/Select";
 const FormWrapper = styled.div`
   width: 400px;
   padding: 20px;
+
+  @media screen and (max-width: 820px) {
+    width: 100%;
+    padding: 10px;
+  }
 `;
 
 const Form = styled.form`
@@ -44,9 +49,7 @@ export const AddItemForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(
-      fridge.actions.addItem({ name, quantity, category /* dueDate */ })
-    ); // name, quantity & category as payload
+    dispatch(fridge.actions.addItem({ name, quantity, category })); // name, quantity & category as payload
     setName("");
     setQuantity("");
     setCategory("");

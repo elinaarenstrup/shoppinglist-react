@@ -9,6 +9,37 @@ import { CustomCheckbox } from "./CustomCheckbox";
 const ItemWrapper = styled.div`
   margin-top: 20px;
   border-bottom: 2px solid #fff;
+
+  @media screen and (max-width: 820px) {
+    margin-top: 10px;
+  }
+
+  :hover {
+    -webkit-animation: shadow-drop-bottom 0.4s
+      cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: shadow-drop-bottom 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
+    @-webkit-keyframes shadow-drop-bottom {
+      0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      }
+      100% {
+        -webkit-box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.35);
+        box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.35);
+      }
+    }
+    @keyframes shadow-drop-bottom {
+      0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      }
+      100% {
+        -webkit-box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.35);
+        box-shadow: 0 12px 20px -12px rgba(0, 0, 0, 0.35);
+      }
+    }
+  }
 `;
 
 const ItemContainer = styled.div`
@@ -18,6 +49,15 @@ const ItemContainer = styled.div`
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-width: 820px) {
+    width: 40vh;
+    padding: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 
 const ListItem = styled.li`
