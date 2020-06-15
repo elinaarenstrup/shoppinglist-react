@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { fridge } from "reducers/fridge";
-import styled from "styled-components";
-import { Button } from "lib/Button";
-import { Select } from "lib/Select";
+import styled from "styled-components"
+import { Button } from "../lib/Button";
+import { Select } from "../lib/Select";
+
+const itemsUrl = "https://shoppinglist-be.herokuapp.com/items";
 
 const FormWrapper = styled.div`
   width: 400px;
@@ -40,27 +40,35 @@ const Input = styled.input`
   }
 `;
 
-export const AddItemForm = () => {
+export const ItemsForm = () => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [category, setCategory] = useState("");
 
-  const dispatch = useDispatch();
-
   const handleSubmit = (event) => {
+    // Prevent page from refreshing automatically
     event.preventDefault();
-    dispatch(fridge.actions.addItem({ name, quantity, category })); // name, quantity & category as payload
-    setName("");
-    setQuantity("");
-    setCategory("");
+
+    // Posting the message to the server
+    fetch(itemsUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // Send the JSON as a string
+      body: JSON.stringify({ name, quantity, category }),
+    }).then(() => {
+      // Reload the page after the request is complete
+      window.location.reload();
+    });
   };
 
   return (
     <FormWrapper>
-      <Form onSubmit={handleSubmit}>
+      <Form >
         <label>
           Name
-          <Input
+        <Input
             type="text"
             value={name}
             placeholder="Product name"
@@ -70,7 +78,7 @@ export const AddItemForm = () => {
 
         <label>
           Quantity
-          <Input
+        <Input
             type="number"
             value={quantity}
             min="1"
@@ -82,7 +90,7 @@ export const AddItemForm = () => {
 
         <label>
           Category
-          <Select
+        <Select
             value={category}
             onChange={(event) => setCategory(event.target.value)}
           >
@@ -94,9 +102,9 @@ export const AddItemForm = () => {
           </Select>
         </label>
 
-        <Button type="submit" background="pink">
+        <Button type="submit" onClick={handleSubmit} background="pink">
           submit
-        </Button>
+      </Button>
       </Form>
     </FormWrapper>
   );

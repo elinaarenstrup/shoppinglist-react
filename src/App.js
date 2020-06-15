@@ -4,8 +4,8 @@ import { combineReducers, createStore } from "@reduxjs/toolkit";
 import styled from "styled-components";
 import { fridge } from "reducers/fridge";
 
-import { AddItemForm } from "components/AddItemForm";
-import { ItemList } from "components/ItemList";
+import { ItemsForm } from "components/AddItemForm";
+import { ItemsList } from "components/ItemList";
 import { ClearButton } from "components/ClearButton";
 import { FridgeSummary } from "components/FridgeSummary";
 
@@ -74,8 +74,8 @@ export const App = () => {
       <AppWrapper>
         <FridgeSummary />
         <ContentWrapper>
-          <AddItemForm />
-          <ItemList />
+          <ItemsForm />
+          <ItemsList />
           <ClearButton />
         </ContentWrapper>
       </AppWrapper>
